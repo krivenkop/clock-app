@@ -12,6 +12,17 @@ services:
     depends_on:
       - db
 
+  frontend:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    volumes:
+      - ${PROJECT_ROOT}/:/app
+    command: /app/docker/frontend/run.sh
+    depends_on:
+      - nginx
+
   nginx:
    restart: on-failure
    image: nginx:stable
