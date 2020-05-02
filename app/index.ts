@@ -1,10 +1,11 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const app: express.Application = express();
-const {
-  PORT = 8080,
-} = process.env;
+const {PORT} = process.env;
 
 app.get('/', (req: Request, res: Response) => {
   res.json({
