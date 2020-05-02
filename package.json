@@ -6,19 +6,28 @@
   "scripts": {
     "backend:watch": "npm-run-all --parallel backend:watch:webpack backend:watch:nodemon",
     "backend:watch:webpack": "webpack --watch",
-    "backend:watch:nodemon": "nodemon /app/dist/index.js"
+    "backend:watch:nodemon": "nodemon /app/dist/app.js",
+    "frontend:watch": "webpack --watch --config ./frontend/webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.6",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.4",
     "@types/pg": "^7.14.3",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
     "@types/superagent": "^4.1.7",
     "@types/supertest": "^2.0.9",
+    "babel-loader": "^8.1.0",
     "jest": "^25.5.4",
     "nodemon": "^2.0.3",
     "npm-run-all": "^4.1.5",
@@ -34,6 +43,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "pg": "^8.0.3"
+    "pg": "^8.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

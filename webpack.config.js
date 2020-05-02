@@ -3,8 +3,6 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-console.log('DIRNAME MOTHERFUCKER', __dirname);
-
 module.exports = {
   mode: process.env.ENVIRONMENT,
   watch: false,
@@ -12,7 +10,9 @@ module.exports = {
     aggregateTimeout: 300
   },
 
-  entry: './app/index.ts',
+  entry: {
+    app: './app/index.ts'
+  },
   module: {
     rules: [
       {
@@ -31,7 +31,7 @@ module.exports = {
     }
   },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'node',
