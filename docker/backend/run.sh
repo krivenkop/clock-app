@@ -1,3 +1,3 @@
-webpack --watch false
-webpack &
-nodemon /app/dist/index.js
+npm i
+echo "run.sh"
+npm run backend:watch

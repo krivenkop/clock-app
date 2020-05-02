@@ -1,10 +1,9 @@
 const path = require('path');
-const fs = require('fs');
 
 
 module.exports = {
   mode: "development",
-  watch: false,
+  watch: true,
   watchOptions: {
     aggregateTimeout: 300
   },
