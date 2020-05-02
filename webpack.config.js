@@ -1,9 +1,10 @@
 const path = require('path');
-const fs = require('fs');
+const dotenv = require('dotenv');
 
+dotenv.config();
 
 module.exports = {
-  mode: "development",
+  mode: process.env.ENVIRONMENT,
   watch: false,
   watchOptions: {
     aggregateTimeout: 300
@@ -26,4 +27,5 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  target: 'node',
 };

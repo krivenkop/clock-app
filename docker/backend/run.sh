@@ -1,3 +1,3 @@
-webpack --watch false
-webpack &
-node /app/dist/index.js
+npm i
+webpack
+npm run backend:watch

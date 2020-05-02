@@ -6,8 +6,35 @@ services:
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
-    ports:
-      - 8080:8080
     volumes:
-      - ./app:/app/app
-    command: /app/run.sh
+      - ${PROJECT_ROOT}/:/app
+    command: /app/docker/backend/run.sh
+    depends_on:
+      - db
+
+  nginx:
+   restart: on-failure
+   image: nginx:stable
+   ports:
+     - ${NGINX_HTTP_PORT}:3000
+   env_file:
+     - ${PROJECT_ROOT}/.env
+   volumes:
+     - ${PROJECT_ROOT}/docker/nginx/:/etc/nginx/conf.d
+     - ${PROJECT_ROOT}/:/app
+   depends_on:
+     - backend
+   links:
+     - backend
+
+  db:
+    restart: on-failure
+    image: postgres:11
+    ports:
+      - ${POSTGRES_PORT}:5432
+    expose:
+      - ${POSTGRES_PORT}
+    env_file:
+      - ./.env
+    volumes:
+      - ./docker/database:/var/lib/postgresql/data
