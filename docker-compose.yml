@@ -9,5 +9,5 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./app:/app/app
+      - ./:/app
     command: /app/docker/backend/run.sh

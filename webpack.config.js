@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   mode: "development",
-  watch: true,
+  watch: false,
   watchOptions: {
     aggregateTimeout: 300
   },
@@ -25,4 +25,5 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  target: 'node',
 };

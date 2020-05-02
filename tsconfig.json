@@ -3,9 +3,29 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "sourceMap": false,
-    "module": "es6",
-    "target": "es5",
+    "module": "commonjs",
+    "target": "es6",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "rules": {
+    "max-line-length": {
+      "options": [100]
+    },
+    "member-ordering": false,
+    "no-consecutive-blank-lines": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [true, "single"],
+    "variable-name": [true, "allow-leading-underscore"]
+  },
+  "filesGlob": [
+    "./app/**/*.ts",
+    "./node_modules/@types/**/*.d.ts"
+  ]
 }
