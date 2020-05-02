@@ -1,7 +1,8 @@
 {
   "verbose": true,
   "ignore": [
-    "./docker"
+    "./docker",
+    "./frontend"
   ],
   "delay": 300
 }
