@@ -7,7 +7,22 @@ services:
       context: .
       dockerfile: ./docker/backend/Dockerfile
     ports:
-      - 8080:8080
+      - ${PORT}:8080
     volumes:
-      - ./:/app
+      - ${PROJECT_ROOT}/:/app
     command: /app/docker/backend/run.sh
+    
+  nginx:
+    restart: on-failure
+    image: nginx:stable
+    ports:
+      - ${NGINX_HTTP_PORT}:80
+    env_file:
+      - ${PROJECT_ROOT}/.env
+    volumes:
+      - ${RPOJECT_ROOT}/docker/nginx/:/etc/nginx/conf.d
+      - ${RPOJECT_ROOT}/:/app
+    depends_on:
+      - backend
+    links:
+      - backend:backend
