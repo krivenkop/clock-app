@@ -1,5 +1,7 @@
 {
   "verbose": true,
-  "ignore": [],
+  "ignore": [
+    "./docker"
+  ],
   "delay": 300
 }
