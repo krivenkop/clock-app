@@ -11,6 +11,4 @@ WORKDIR /app
 RUN cp -a /tmp/node_modules /app
 COPY webpack.config.js ./
 COPY tsconfig.json ./
-COPY ./app ./app
-
-RUN webpack
+COPY docker/backend/run.sh ./
