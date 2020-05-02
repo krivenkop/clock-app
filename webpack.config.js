@@ -1,8 +1,10 @@
 const path = require('path');
+const dotenv = require('dotenv');
 
+dotenv.config();
 
 module.exports = {
-  mode: "development",
+  mode: process.env.ENVIRONMENT,
   watch: false,
   watchOptions: {
     aggregateTimeout: 300
