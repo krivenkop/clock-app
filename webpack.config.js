@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+console.log('DIRNAME MOTHERFUCKER', __dirname);
+
 module.exports = {
   mode: process.env.ENVIRONMENT,
   watch: false,
@@ -22,6 +24,11 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
+    alias: {
+      '@': `${__dirname}`,
+      '@app': path.resolve(__dirname, 'app'),
+      '@lib': path.resolve(__dirname, 'lib'),
+    }
   },
   output: {
     filename: 'index.js',
