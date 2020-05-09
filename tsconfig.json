@@ -18,7 +18,11 @@
       "@lib/*": ["./lib/*"]
     },
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "lib": [
+      "es2015.promise",
+      "es2015.iterable"
+    ]
   },
   "rules": {
     "max-line-length": {
