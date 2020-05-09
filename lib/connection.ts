@@ -1,4 +1,4 @@
-import {Pool, QueryResult} from 'pg';
+import { Pool, QueryResult } from 'pg';
 
 export class Connection {
   connection: Pool;
