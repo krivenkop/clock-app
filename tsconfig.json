@@ -16,7 +16,9 @@
     "paths": {
       "@app/*": ["./app/*"],
       "@lib/*": ["./lib/*"]
-    }
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "rules": {
     "max-line-length": {
