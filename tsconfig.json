@@ -24,6 +24,11 @@
       "es2015.iterable"
     ]
   },
+  "include": [
+    "node_modules/bdd-lazy-var/getter.d.ts",
+    "**/src/**/*.ts",
+    "**/test/**/*.ts"
+  ],
   "rules": {
     "max-line-length": {
       "options": [100]

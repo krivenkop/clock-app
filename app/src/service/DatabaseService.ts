@@ -1,5 +1,6 @@
 import { createConnection, Connection } from 'typeorm';
 import { Injectable } from '@decorators/di';
+import { connect } from '@app/orm';
 
 @Injectable()
 export class DatabaseService {
@@ -12,28 +13,6 @@ export class DatabaseService {
   }
 
   async connect() {
-    try {
-      return await createConnection({
-        type: 'postgres',
-        host: 'db',
-        port: +process.env.POSTGRES_PORT,
-        username: process.env.POSTGRES_USER,
-        password: process.env.POSTGRES_PASSWORD,
-        database: process.env.POSTGRES_DATABASE,
-        entities: [
-          '@app/src/entity/*.js',
-        ],
-        migrations: [
-          '@app/src/migration/*.js',
-        ],
-        subscribers: [
-          '@app/src/subscriber/*.js',
-        ],
-        synchronize: true,
-      });
-    } catch (e) {
-      console.error('Cannot connect to db');
-      return null;
-    }
+    return connect();
   }
 }
