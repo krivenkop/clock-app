@@ -6,3 +6,5 @@
 
 docker/database/*
 !docker/database/.keep
+
+ormconfig.json
