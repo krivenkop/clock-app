@@ -27,7 +27,8 @@
   "include": [
     "node_modules/bdd-lazy-var/getter.d.ts",
     "**/src/**/*.ts",
-    "**/test/**/*.ts"
+    "**/test/**/*.ts",
+    "bin/**/*"
   ],
   "rules": {
     "max-line-length": {
