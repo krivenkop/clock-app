@@ -1,14 +1,13 @@
 import {
-  BeforeInsert,
+  BeforeInsert, BeforeUpdate,
   Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn,
 } from 'typeorm';
 import {
   IsEmail, Max, Min, Validate,
 } from 'class-validator';
 import { Location } from '@app/src/validation/Location';
+import { createHmac, createHash } from 'crypto';
 import { Timezone } from '../validation/Timezone';
-// TODO: create encrypted password generation and finish user tests
-import {  } from 'crypto';
 
 @Entity()
 export class User {
@@ -71,9 +70,17 @@ export class User {
   private password: string;
 
   @BeforeInsert()
+  private generatePasswordFirstly() {
+    this.salt = createHash('sha1').update(process.env.APP_SECRET).digest('hex');
+    this.encryptedPassword = createHmac('sha512', this.salt)
+      .update(this.password)
+      .digest('hex');
+  }
 
-
+  @BeforeUpdate()
   private generatePassword() {
-
+    this.encryptedPassword = createHmac('sha512', this.salt)
+      .update(this.password)
+      .digest('hex');
   }
 }
