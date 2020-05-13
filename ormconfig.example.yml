@@ -1,0 +1,29 @@
+development:
+  type: postgres
+  host: db
+  port: 5432
+  database: clocker
+  username: root
+  password: root
+  synchronize: true
+  entitiesDir:
+    - dist/app/src/entity
+  migrations:
+    - app/src/migration
+  subscribers:
+    - app/src/subscriber
+
+test:
+  type: postgres
+  host: db
+  port: 5432
+  database: clocker_test
+  username: root
+  password: root
+  synchronize: true
+  entitiesDir:
+    - dist/app/src/entity
+  migrations:
+    - app/src/migration
+  subscribers:
+    - app/src/subscriber
