@@ -3,5 +3,8 @@
   "ignore": [
     "./docker"
   ],
-  "delay": 300
+  "delay": 500,
+  "events": {
+    "restart": "cp ormconfig.yml ./dist"
+  }
 }

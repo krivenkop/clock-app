@@ -7,4 +7,4 @@
 docker/database/*
 !docker/database/.keep
 
-ormconfig.json
+ormconfig.yml

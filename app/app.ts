@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as dotenv from 'dotenv';
 import { attachControllers } from '@decorators/express';
-import { HomeController } from '@app/src/controller/HomeController';
+import { HomeController } from './src/controller/HomeController';
 
 import 'reflect-metadata';
 

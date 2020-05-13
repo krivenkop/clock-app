@@ -1,9 +1,8 @@
 const path = require('path');
 const dotenv = require('dotenv');
+const nodeExternals = require("webpack-node-externals")
 
 dotenv.config();
-
-console.log('DIRNAME MOTHERFUCKER', __dirname);
 
 module.exports = {
   mode: process.env.ENVIRONMENT,
@@ -35,4 +34,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'node',
+  externals: [
+      nodeExternals(),
+  ]
 };

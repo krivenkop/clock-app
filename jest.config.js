@@ -14,5 +14,6 @@ module.exports = {
     '@/(.*)$': '<rootDir>$1',
     '^@app(.*)$': '<rootDir>/app$1',
   },
+  "testRegex": "./test/.*.js$",
   setupTestFrameworkScriptFile: 'bdd-lazy-var/global',
 };

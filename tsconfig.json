@@ -13,22 +13,21 @@
       "node_modules/@types"
     ],
     "baseUrl": "./",
-    "paths": {
-      "@app/*": ["./app/*"],
-      "@lib/*": ["./lib/*"]
-    },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
       "es2015.promise",
       "es2015.iterable"
+    ],
+    "rootDirs": [
+      "./app",
+      "./lib"
     ]
   },
   "include": [
     "node_modules/bdd-lazy-var/getter.d.ts",
-    "**/src/**/*.ts",
-    "**/test/**/*.ts",
-    "bin/**/*"
+    "app/**/*.ts",
+    "test/**/*.ts"
   ],
   "rules": {
     "max-line-length": {
