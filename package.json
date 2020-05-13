@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "backend:watch": "npm-run-all --parallel backend:watch:webpack backend:watch:nodemon",
-    "backend:watch:webpack": "webpack --watch",
-    "backend:watch:nodemon": "nodemon /app/dist/index.js",
+    "backend:watch": "npm-run-all --parallel backend:watch:ts backend:watch:nodemon",
+    "backend:watch:ts": "tsc -w",
+    "backend:watch:nodemon": "nodemon /app/dist/app/index.js",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "typeorm:migration:generate": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -n",
-    "typeorm:migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run"
+    "typeorm:migration:generate": "npm run typeorm migration:generate -n",
+    "typeorm:migration:run": "npm run typeorm -- migration:run -c development && npm run typeorm -- migration:run -c test",
+    "test": "NODE_ENV=test npx jest"
   },
   "keywords": [],
   "author": "",
@@ -39,7 +40,8 @@
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@decorators/di": "^1.0.2",

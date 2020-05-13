@@ -2,7 +2,7 @@ import { OK } from 'http-status-codes';
 import { Controller, Get } from '@decorators/express';
 import { Injectable } from '@decorators/di';
 import { Request, Response } from 'express';
-import { DatabaseService } from '@app/src/service/DatabaseService';
+import { DatabaseService } from '../service/DatabaseService';
 
 @Controller('/')
 @Injectable()

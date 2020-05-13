@@ -5,8 +5,8 @@ import {
 import {
   IsEmail, Max, Min, Validate,
 } from 'class-validator';
-import { Location } from '@app/src/validation/Location';
 import { createHmac, createHash } from 'crypto';
+import { Location } from '../validation/Location';
 import { Timezone } from '../validation/Timezone';
 
 @Entity()

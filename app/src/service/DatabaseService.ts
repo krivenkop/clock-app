@@ -1,6 +1,6 @@
 import { createConnection, Connection } from 'typeorm';
 import { Injectable } from '@decorators/di';
-import { connect } from '@app/orm';
+import { connect } from '../../orm';
 
 @Injectable()
 export class DatabaseService {
